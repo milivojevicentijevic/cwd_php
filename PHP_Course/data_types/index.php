@@ -6,6 +6,7 @@
 </head>
 <body>
 <?php 
+// Exercise
 // 1
     $x = 3;
     $y = 4;
