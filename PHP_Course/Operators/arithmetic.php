@@ -6,19 +6,16 @@
 </head>
 <body>
 <?php
-    // Increments
-    $x = 15;
-    echo ++$x; // 16
-    echo "<br>-------------<br>";
-    echo $x; // 16
-    echo "<br>-------------<br>";
-
-    $y = 15;
-    echo $y++; // 15
-    echo "<br>-------------<br>";
-    echo $y; // 16
-    echo "<br>-------------<br>";
-
+    // Control structures
+    $age = 22;
+    if ($age < 18) {
+        echo "Sorry, you are too young";
+    } elseif ($age > 60) {
+        echo "Sorry, you are too old";
+    } else {
+        echo "You are old enogh to go out!";
+    }
+    
 ?>
 </body>
 </html>
