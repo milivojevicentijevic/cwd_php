@@ -6,29 +6,19 @@
 </head>
 <body>
 <?php
-    // Control structures
-    $age = 22;
-    if ($age < 18) {
-        echo "Sorry, you are too young<br>";
-    } elseif ($age > 60) {
-        echo "Sorry, you are too old<br>";
-    } else {
-        echo "You are old enogh to go out!<br>";
-    }
-    // switch statement
-    $color = "red";
-    switch ($color) {
-        case 'green':
-            echo "You better paint it green<br>";
-            break;
-        case 'blue':
-            echo "You better paint it blue<br>";
-            break;
-        default:
-            echo "Do not paint it at all<br>";
-            break;
-    }
-    
+    // Increments
+    $x = 15;
+    echo ++$x; // 16
+    echo "<br>-------------<br>";
+    echo $x; // 16
+    echo "<br>-------------<br>";
+
+    $y = 15;
+    echo $y++; // 15
+    echo "<br>-------------<br>";
+    echo $y; // 16
+    echo "<br>-------------<br>";
+
 ?>
 </body>
 </html>
