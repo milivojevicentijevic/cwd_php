@@ -14,8 +14,9 @@
     $_SESSION["Name"] = "Milivoje";
     $_SESSION["Age"] = 35;
 
-    echo "Hello ".$_SESSION["Name   "]."<br>";
-
+    echo "Hello ".$_SESSION["Name"]."<br>";
+    
+    // end session
     session_destroy();
 ?>
     
