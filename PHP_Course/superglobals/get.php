@@ -7,6 +7,7 @@
 <body>
 <?php
     // data will be visible in the URL
+    
 ?>
  <form action="get.php" method="GET">
     <input type="text" name="name">
