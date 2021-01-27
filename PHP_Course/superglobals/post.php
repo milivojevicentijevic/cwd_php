@@ -6,6 +6,8 @@
 </head>
 <body>
 <?php
+    // collect data from the HTML form (invisible)
+    
     if(isset($_POST)) {
         echo $_POST['name'].", your form is submitted<br>";
     }
