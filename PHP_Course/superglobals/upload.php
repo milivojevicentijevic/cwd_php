@@ -1,4 +1,5 @@
 <?php
+if(isset($_POST['submit'])) {
     $file = $_FILES['file'];
     $name = $_FILES['file']['name']; // find file name
     $tmp_name = $_FILES['file']['tmp_name']; // temp loc
@@ -28,4 +29,6 @@
     } else {
         echo "Sorry, your file type is not accepted<br>";
     }
+}
+
 ?>
