@@ -1,17 +1,21 @@
 <?php
 
-class User
+abstract class Manager
 {
-    private static $nextId = 0;
-    private $myId;
+    abstract protected function showProject($project);
+}
 
-    public static function printId() {
-        return "User id is: ".self::$nextId."<br>";
+class Employee extends Manager 
+{
+    public function showProject($project = "Apple")
+    {
+        return "I am working in ".$project."<br>";
+    }
+
+    public function startProject($project) {
+        return $this->showProject($project);
     }
 }
-/*
-$user = new User();
-$user->myId = 10;
-echo $user->myId."<br>";
-*/
-echo User::printId();
+
+$employee = new Employee();
+echo $employee->showProject()."<br>";
