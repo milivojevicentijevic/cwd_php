@@ -10,7 +10,17 @@ class Database
     private $dbHandler;
     private $error;
 
-    private function connect() {
-        $conn = '';
+    public function connect() {
+        $conn = 'mysql:host='.$this->dbHost.';dbName='.$this->dbName;
+        $options = array(
+            PDO::ATTR_PERSISTENT => true, 
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        );
+        try {
+            $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
+        } catch(PDOException $e) {
+            $this->error = $e->getMessage();
+            echo $this->error;
+        }
     }
 }
