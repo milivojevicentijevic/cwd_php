@@ -2,20 +2,26 @@
 
 class User
 {
-    public $name;
-    public $age;
+    private $name;
+    private $age;
 
     public function __construct($name, $age) {
         $this->name = $name;
         $this->age = $age;
     }
-    public function __destruct() {
-        echo "Desctructor works<br>";
+    public function getName() {
+        return $this->name."<br>";
     }
-    public function myAge() {
-        return "My age is ".$this->age."<br>";
+    public function setName($name) {
+        $this->name = $name;
+    }
+    public function getAge() {
+        return $this->age."<br>";
+    }
+    public function setAge($age) {
+        $this->age = $age;
     }
 }
-$user = new User("Milivoje", 35);
-echo $user->myAge();
+$user = new User('Milivoje', 35);
+echo $user->getName()."<br>";
 
