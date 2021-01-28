@@ -1,21 +1,35 @@
 <?php
 
-abstract class Manager
+class User 
 {
-    abstract protected function showProject($project);
-}
+    // properties
+    private $name;
+    private $age;
 
-class Employee extends Manager 
-{
-    public function showProject($project = "Apple")
+    // constructor
+    public function __construct($name, $age)
     {
-        return "I am working in ".$project."<br>";
+        $this->name = $name;
+        $this->age = $age;
     }
-
-    public function startProject($project) {
-        return $this->showProject($project);
+    public function __toString()
+    {
+        return "Name: ".$this->name."<br> Age: ".$this->age."<br>";
+    }
+    // getters and setters for name and age
+    public function setName($name) {
+        $this->name = $name;
+    }
+    public function getName() {
+        return $this->name."<br>";
+    }
+    public function setAge($age) {
+        $this->age = $age;
+    }
+    public function getAge() {
+        return $this->age."<br>";
     }
 }
 
-$employee = new Employee();
-echo $employee->showProject()."<br>";
+$user = new User("Jovan", 46);
+echo $user;
