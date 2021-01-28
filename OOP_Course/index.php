@@ -3,26 +3,19 @@
 class User
 {
     public $name;
-    public $email;
+    public $age;
 
-    public function welcomeMessage() {
-        return "Have a good working day!";
+    public function __construct($name, $age) {
+        $this->name = $name;
+        $this->age = $age;
+    }
+    public function __destruct() {
+        echo "Desctructor works<br>";
+    }
+    public function myAge() {
+        return "My age is ".$this->age."<br>";
     }
 }
+$user = new User("Milivoje", 35);
+echo $user->myAge();
 
-class Admin extends User
-{
-    public $level;
-}
-
-$user = new User();
-$user->name = "Milivoje";
-$user->email = "misagrf@yahoo.com";
-echo $user->name. " ".$user->email."<br>";
-
-$admin = new Admin();
-$admin->name = "Jovan"; 
-$admin->email = "jovanpetar@gmail.com"; 
-$admin->level = "SuperAdmin"; 
-echo $admin->name." ".$admin->email." ".$admin->level."<br>";
-echo $admin->welcomeMessage()."<br>";
