@@ -9,19 +9,22 @@ class User
         $this->name = $name;
         $this->age = $age;
     }
-    public function getName() {
-        return $this->name."<br>";
+    // GET magic method 
+    public function __get($property) {
+        if (property_exists($this, $property)) {
+            return $this->$property."<br>";
+        }
     }
-    public function setName($name) {
-        $this->name = $name;
-    }
-    public function getAge() {
-        return $this->age."<br>";
-    }
-    public function setAge($age) {
-        $this->age = $age;
+    // SET magic method
+    public function __set($property, $value) {
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
+        }
+        return $this;
     }
 }
 $user = new User('Milivoje', 35);
-echo $user->getName()."<br>";
+//echo $user->getName()."<br>";
+$user->__set('name', 'Nada');
+echo $user->__get('name')."<br>";
 
