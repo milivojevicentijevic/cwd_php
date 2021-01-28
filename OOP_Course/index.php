@@ -2,29 +2,16 @@
 
 class User
 {
-    private $name;
-    private $age;
+    private static $nextId = 0;
+    private $myId;
 
-    public function __construct($name, $age) {
-        $this->name = $name;
-        $this->age = $age;
-    }
-    // GET magic method 
-    public function __get($property) {
-        if (property_exists($this, $property)) {
-            return $this->$property."<br>";
-        }
-    }
-    // SET magic method
-    public function __set($property, $value) {
-        if (property_exists($this, $property)) {
-            $this->$property = $value;
-        }
-        return $this;
+    public static function printId() {
+        return "User id is: ".self::$nextId."<br>";
     }
 }
-$user = new User('Milivoje', 35);
-//echo $user->getName()."<br>";
-$user->__set('name', 'Nada');
-echo $user->__get('name')."<br>";
-
+/*
+$user = new User();
+$user->myId = 10;
+echo $user->myId."<br>";
+*/
+echo User::printId();
