@@ -31,3 +31,17 @@ html, body{
     color: #afafaf;
     transition: .15s ease-in;
 }
+#section-landing {
+    background: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.wrapper-landing {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    top: 40%;
+}
