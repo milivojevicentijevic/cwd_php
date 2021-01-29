@@ -89,3 +89,36 @@ html, body{
     position: relative;
     margin: 20px auto;
 }
+input::placeholder {
+    color: #a1a1a1;
+    font-size: 14px;
+}
+.wrapper-login h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+#submit {
+    width: 200px;
+    height: 42px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+}
+#submit:hover {
+    border: 1px solid #a1a1a1;
+    background-color: #a1a1a1;
+    transition: .15s ease-in;
+}
+.options a {
+    color: #006400;
+}
+.options a:hover {
+    color: #000;
+    transition: .2s ease-in;
+    text-decoration: none;
+}
+.invalidFeedback {
+    color: #ff0000;
+}
