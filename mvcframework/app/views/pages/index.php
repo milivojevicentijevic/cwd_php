@@ -1,1 +1,3 @@
-MVC is working!
+<?php
+    echo $data['title'];
+?>
