@@ -12,7 +12,6 @@
                 'confirmPassword' => '',
                 'usernameError' => '',
                 'emailError' => '',
-                'emailError' => '',
                 'passwordError' => '',
                 'confirmPasswordError' => '' 
             ];
@@ -25,13 +24,12 @@
                     'password' => trim($_POST['password']),
                     'confirmPassword' => trim($_POST['confirmPassword']),
                     'usernameError' => '',
-                    'emailError' => '',
-                    'emailError' => '',
+                    'emailError' => '', 
                     'passwordError' => '',
                     'confirmPasswordError' => '' 
                 ];
                 $nameValidation = "/^[a-zA-Z0-9]*$/";
-                $passwordValidation = "/^(.{0,7}|[^a-z]*[^\d]*)$/i";
+                $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
                 // validate username on letters/numbers
                 if (empty($data['username'])) {
                     $data['usernameError'] = 'Please enter username.';
@@ -39,7 +37,7 @@
                     $data['usernameError'] = 'Name can only contain letters and numbers.';
                 }
                 // validate email
-                if (empty($data['eamil'])) {
+                if (empty($data['email'])) {
                     $data['emailError'] = 'Please enter email address.';
                 } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                     $data['emailError'] = 'Please enter the correct format.';
@@ -52,9 +50,9 @@
                 // validate password on length and numeric values
                 if (empty($data['password'])) {
                     $data['passwordError'] = 'Please enter password.';
-                } elseif (strlen($data['password'] < 6)) {
+                } elseif (strlen($data['password'] < 8)) {
                     $data['passwordError'] = 'Password must be at least 8 characters.';
-                } elseif (!preg_match($passwordValidation, $data['password'])) {
+                } elseif (preg_match($passwordValidation, $data['password'])) {
                     $data['passwordError'] = 'Password must have at least one numeric value.';
                 }
                 // validate confirm password
@@ -69,15 +67,14 @@
                 if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
                     // hash password
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                    // register user from model function
+                    if ($this->userModel->register($data)) {
+                        // redirect to the login page
+                        header('location: '.URLROOT.'/users/login');
+                    } else {
+                        die('something went wrong.');
+                    }
                 }
-                // register user from model function
-                if ($this->userModel->register($data)) {
-                    // redirect to the login page
-                    header('Location: '.URLROOT.'/users/login');
-                } else {
-                    die('something went wrong.');
-                }
-
             }
             $this->view('users/register', $data);
         }
@@ -91,4 +88,3 @@
             $this->view('users/login', $data);
         }
     }
-?>

@@ -17,7 +17,7 @@
             <span class="invalidFeedback"><?php echo $data['emailError']; ?></span>
             <input type="password" name="password" placeholder="Password *">
             <span class="invalidFeedback"><?php echo $data['passwordError']; ?></span>
-            <input type="password" name="conformPassword" placeholder="Confirm Password *">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password *">
             <span class="invalidFeedback"><?php echo $data['confirmPasswordError']; ?></span>
             <button id="submit" type="submit" name="submit">Submit</button>
             <p class="options">Not registered yet? <a href="<?php echo URLROOT; ?>/users/register">Create an account!</a></p>

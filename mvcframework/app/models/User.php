@@ -21,7 +21,7 @@
 
     }
     // find user by email. Email is passed in by Controller
-    public function findUsersByEmail($email) {
+    public function findUserByEmail($email) {
         // prepared statement
         $this->db->query('SELECT * FROM users WHERE email = :email');
         // email param will be binded with the email variable
