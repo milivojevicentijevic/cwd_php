@@ -20,10 +20,10 @@
                 // sanitize post data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 $data = [
-                    'username' => trim($data['username']),
-                    'email' => trim($data['email']),
-                    'password' => trim($data['password']),
-                    'confirmPassword' => trim($data['confirmPassword']),
+                    'username' => trim($_POST['username']),
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'confirmPassword' => trim($_POST['confirmPassword']),
                     'usernameError' => '',
                     'emailError' => '',
                     'emailError' => '',
@@ -31,6 +31,7 @@
                     'confirmPasswordError' => '' 
                 ];
                 $nameValidation = "/^[a-zA-Z0-9]*$/";
+                $passwordValidation = "/^(.{0,7}|[^a-z]*[^\d]*)$/i";
                 // validate username on letters/numbers
                 if (empty($data['username'])) {
                     $data['usernameError'] = 'Please enter username.';
@@ -48,6 +49,35 @@
                         $data['emailError'] = 'Email is already taken.';
                     }
                 }
+                // validate password on length and numeric values
+                if (empty($data['password'])) {
+                    $data['passwordError'] = 'Please enter password.';
+                } elseif (strlen($data['password'] < 6)) {
+                    $data['passwordError'] = 'Password must be at least 8 characters.';
+                } elseif (!preg_match($passwordValidation, $data['password'])) {
+                    $data['passwordError'] = 'Password must have at least one numeric value.';
+                }
+                // validate confirm password
+                if (empty($data['confirmPassword'])) {
+                    $data['confirmPasswordError'] = 'Please enter password.';
+                } else {
+                    if ($data['password'] != $data['confirmPassword']) {
+                        $data['confirmPasswordError'] = 'Passwords do not match.';
+                    }
+                }
+                // make sure that errors are empty
+                if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+                    // hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                }
+                // register user from model function
+                if ($this->userModel->register($data)) {
+                    // redirect to the login page
+                    header('Location: '.URLROOT.'/users/login');
+                } else {
+                    die('something went wrong.');
+                }
+
             }
             $this->view('users/register', $data);
         }
