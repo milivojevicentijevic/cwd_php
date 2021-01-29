@@ -10,6 +10,9 @@
         {
             $url = $this->getUrl();
             // look in 'controllers' for the first value, ucwords will capitalize the first letter
+            if(!isset($url[0])) {
+                 $url[0] = 'index';
+            }
             if (file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
                 // will set a new controller
                 $this->currentController = ucwords($url[0]);
