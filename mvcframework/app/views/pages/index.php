@@ -1,3 +1,3 @@
 <?php
-    echo $data['title'];
+    echo SITENAME;
 ?>
