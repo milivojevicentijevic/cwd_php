@@ -8,7 +8,7 @@
     // APPROOT
     define('APPROOT', dirname(dirname(__FILE__)));
     // URLROOT (Dynamic links)
-    define('URLROOT', 'localhost/CodeWithDary/mvcframework');
+    define('URLROOT', 'http://localhost/CodeWithDary/mvcframework');
     // Sitename
     define('SITENAME', 'MVC Framework');
 
