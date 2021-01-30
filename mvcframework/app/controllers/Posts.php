@@ -51,10 +51,15 @@ class Posts extends Controller
     }
     public function update($id) {
         $post = $this->postModel->findPostById($id);
-        var_dump($post);
+        if (!isLoggedIn()) {
+            header("Location: ".URLROOT."/posts");
+        } elseif ($post->user_id != $_SESSION['user_id']) {
+            header("Location: ".URLROOT."/posts");
+        }
         $data = [
             'post' => $post
         ];
+ 
         $this->view('posts/update', $data);
     }
     public function delete() {
