@@ -50,8 +50,10 @@ class Posts extends Controller
         $this->view('posts/create', $data);
     }
     public function update($id) {
+        $post = $this->postModel->findPostById($id);
+        var_dump($post);
         $data = [
-
+            'post' => $post
         ];
         $this->view('posts/update', $data);
     }
