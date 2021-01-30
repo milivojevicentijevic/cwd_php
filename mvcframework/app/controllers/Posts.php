@@ -5,6 +5,10 @@ class Posts extends Controller
         $this->postModel = $this->model('Post');
     }
     public function index() {
-        $this->view('posts/index');
+        $posts = $this->postModel->findAllPosts();
+        $data = [
+            'posts' => $posts
+        ];
+        $this->view('posts/index', $data);
     }
 }
