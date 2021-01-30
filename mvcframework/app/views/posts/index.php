@@ -18,6 +18,9 @@
                 <a class="btn orange" href="<?php echo URLROOT."/posts/update/".$post->id ?>">
                     Update
                 </a>
+                <form action="<?php echo URLROOT."/posts/delete/".$post->id ?>" method="post">
+                    <input type="submit" name="delete" value="Delete" class="btn red">
+                </form>
             <?php endif; ?>
             <h2><?php echo $post->title; ?></h2>
             <h3><?php echo 'Created on: '.date('F j h:m', strtotime($post->created_at)) ?></h3>

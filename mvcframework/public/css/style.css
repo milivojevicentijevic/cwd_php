@@ -200,3 +200,10 @@ textarea {
     color: #000;
     float: right;
 }
+.red {
+    background-color: #ff0000;
+    margin: 0px 20px;
+    float: right;
+    width: 120px;
+    height: 42px;
+}
