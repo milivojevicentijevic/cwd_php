@@ -7,6 +7,11 @@
     ?>
 </div>
 <div class="container">
+    <?php if (isLoggedIn()) : ?>
+        <a class="btn green" href="<?php echo URLROOT; ?>/posts/create">
+            Create
+        </a>
+    <?php endif; ?>
     <?php foreach($data['posts'] as $post): ?>
         <div class="container-item">
             <h2><?php echo $post->title; ?></h2>

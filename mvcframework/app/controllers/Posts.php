@@ -11,4 +11,4 @@ class Posts extends Controller
         ];
         $this->view('posts/index', $data);
     }
-}
+}   
