@@ -195,3 +195,8 @@ textarea {
     font-weight: 100;
     font-style: italic;
 }
+.orange {
+    background-color: orange;
+    color: #000;
+    float: right;
+}

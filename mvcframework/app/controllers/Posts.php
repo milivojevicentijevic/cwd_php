@@ -49,8 +49,11 @@ class Posts extends Controller
         }
         $this->view('posts/create', $data);
     }
-    public function update() {
+    public function update($id) {
+        $data = [
 
+        ];
+        $this->view('posts/update', $data);
     }
     public function delete() {
 
