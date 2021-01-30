@@ -12,8 +12,14 @@ class Posts extends Controller
         $this->view('posts/index', $data);
     }
     public function create() {
+        if (!isLoggedIn()) {
+            header('Location: '.URLROOT.'/posts');
+        }
         $data = [
-            
+            'title' => '',
+            'body' => '',
+            'titleError' => '',
+            'bodyError' => ''
         ];
         $this->view('posts/create', $data);
     }

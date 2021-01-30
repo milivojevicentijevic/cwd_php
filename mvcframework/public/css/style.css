@@ -170,3 +170,28 @@ input::placeholder {
     background-color: #64a764;
     transition: .2s ease-in-out;
 }
+/* Create post */
+.center {
+    text-align: center;
+}
+input, textarea {
+    width: 400px;
+    margin: 20px 0;
+    border: 1px solid #cbcbcb;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    padding: 8px;
+    font-size: 18px;
+    color: #667;
+}
+input {
+    height: 35px;
+}
+textarea {
+    height: 200px;
+}
+::placeholder {
+    font-size: 14px;
+    font-weight: 100;
+    font-style: italic;
+}
