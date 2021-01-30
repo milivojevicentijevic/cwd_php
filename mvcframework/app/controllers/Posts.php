@@ -11,4 +11,16 @@ class Posts extends Controller
         ];
         $this->view('posts/index', $data);
     }
+    public function create() {
+        $data = [
+            
+        ];
+        $this->view('posts/create', $data);
+    }
+    public function update() {
+
+    }
+    public function delete() {
+
+    }
 }   
